@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Accordion fx:id="allGameData">
+      <Accordion>
         <panes>
-          <TitledPane animated="false" prefHeight="268.0" prefWidth="600.0" text="PlayStation4GameData">
+          <TitledPane animated="false" prefHeight="268.0" prefWidth="600.0" text="AradeGameData">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextArea prefHeight="375.0" prefWidth="600.0" />
-                     </children>
-                  </AnchorPane>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </TitledPane>
-          <TitledPane animated="false" prefHeight="466.0" prefWidth="600.0" text="AradeGameData">
+          <TitledPane animated="false" prefHeight="466.0" prefWidth="600.0" text="PlayStation4Data">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea prefHeight="350.0" prefWidth="600.0" />
+                        <Label layoutX="68.0" layoutY="19.0" text="Rank:" />
+                        <Label layoutX="64.0" layoutY="49.0" text="Game: " />
+                        <Label layoutX="54.0" layoutY="81.0" text="Copies Sold:" />
+                        <Label layoutX="71.0" layoutY="143.0" text="Genre:" />
+                        <Label layoutX="59.0" layoutY="175.0" text="Developer:" />
+                        <Label layoutX="52.0" layoutY="112.0" text="Release Date:" />
+                        <Label layoutX="63.0" layoutY="204.0" text="Publisher:" />
+                        <TextField fx:id="textRank" layoutX="132.0" layoutY="15.0" prefHeight="25.0" prefWidth="350.0" />
+                        <TextField fx:id="textGame" layoutX="132.0" layoutY="45.0" prefHeight="25.0" prefWidth="350.0" />
+                        <TextField fx:id="textCopiesSold" layoutX="132.0" layoutY="77.0" prefHeight="25.0" prefWidth="350.0" />
+                        <TextField fx:id="textReleaseDate" layoutX="132.0" layoutY="108.0" prefHeight="25.0" prefWidth="350.0" />
+                        <TextField fx:id="textGenre" layoutX="132.0" layoutY="139.0" prefHeight="25.0" prefWidth="349.0" />
+                        <TextField fx:id="textDeveloper" layoutX="132.0" layoutY="171.0" prefHeight="25.0" prefWidth="349.0" />
+                        <TextField fx:id="textPublisher" layoutX="132.0" layoutY="200.0" prefHeight="25.0" prefWidth="348.0" />
+                        <Button fx:id="previousButton" layoutX="61.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Previous " />
+                        <Label layoutX="167.0" layoutY="253.0" text="Play Station Game Number:" />
+                        <Label fx:id="playStationGameNumberLabel" layoutX="320.0" layoutY="253.0" text="0 of 0" />
+                        <Button fx:id="nextButton" layoutX="376.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Next" />
                      </children>
                   </AnchorPane>
             </content>
