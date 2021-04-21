@@ -28,8 +28,10 @@ public class PlayStation4Game extends Game {
 
     static void initialize() {
         read("PlayStation4Game");
-
+        getMyController().updatePlayStation4UI(getFirstGame(), 1, getNumberOfGame());
     }
+
+
 
     String getGenre() {
         return genre;
@@ -55,6 +57,14 @@ public class PlayStation4Game extends Game {
         this.publisher = publisher;
     }
 
+
+    static public int getCurrentGameNumber() {
+        return currentGameNumber;
+    }
+
+    static public int getNumberOfGame() {
+        return playStation4Games.size();
+    }
 
     @Override
 
@@ -102,16 +112,16 @@ public class PlayStation4Game extends Game {
         return playStation4Games.get(currentGameNumber - 1);
     }
 
-    static public PlayStation4Game getNextFilm() {
+    static public PlayStation4Game getNextGame() {
         if (currentGameNumber < playStation4Games.size()) {
             currentGameNumber = currentGameNumber +1;
         } else {
             currentGameNumber = 1;
         }
-        return playStation4Games.get(currentGameNumber -1);
+        return playStation4Games.get(currentGameNumber - 1);
     }
 
-    static public PlayStation4Game getPreviousFilm() {
+    static public PlayStation4Game getPreviousGame() {
         if (currentGameNumber > 1) {
             currentGameNumber = currentGameNumber -1;
         } else {

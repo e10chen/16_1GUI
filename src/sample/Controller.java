@@ -16,6 +16,7 @@ public class Controller {
     public Button nextButton;
 
 
+
 public void initialize(){
     Game.setMyController(this);
 
@@ -27,7 +28,16 @@ public void initialize(){
     }
 
     void updatePlayStation4UI(PlayStation4Game playStationGame, int playStationGameNum, int numOfPlayStationGames) {
-        textRank.setText(Integer.toString(Game.getRank()));
+        textRank.setText(Integer.toString(playStationGame.getRank()));
+        textGame.setText(playStationGame.getTitle());
+        textCopiesSold.setText(Double.toString(playStationGame.getCopiesSold()));
+        textReleaseDate.setText(playStationGame.getReleaseDate());
+        textGenre.setText(playStationGame.getGenre());
+        textDeveloper.setText(playStationGame.getDeveloper());
+        textPublisher.setText(playStationGame.getPublisher());
+        playStationGameNumberLabel.setText(playStationGameNum + " of " + numOfPlayStationGames);
     }
+
+
 
 }
