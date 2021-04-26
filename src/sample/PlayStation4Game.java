@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class PlayStation4Game extends Game {
 
-    private static ArrayList<PlayStation4Game> playStation4Games;
+    private static ArrayList<PlayStation4Game> playStation4Games = new ArrayList<>();
     private static int currentGameNumber;
     private String genre;
     private String developer;
@@ -21,13 +21,12 @@ public class PlayStation4Game extends Game {
         this.publisher = publisher;
 
         if (playStation4Games == null) {
-            playStation4Games = new ArrayList<PlayStation4Game>();
         }
         playStation4Games.add(this);
     }
 
     static void initialize() {
-        read("PlayStation4Game");
+        read("src/sample/PlayStation4GameData");
         getMyController().updatePlayStation4UI(getFirstGame(), 1, getNumberOfGame());
     }
 
@@ -107,6 +106,7 @@ public class PlayStation4Game extends Game {
 
     }
 
+
     static public PlayStation4Game getFirstGame() {
         currentGameNumber = 1;
         return playStation4Games.get(currentGameNumber - 1);
@@ -130,6 +130,11 @@ public class PlayStation4Game extends Game {
         return  playStation4Games.get(currentGameNumber - 1);
     }
 
+    static void previous() {
+        getMyController().updatePlayStation4UI(getPreviousGame(), getCurrentGameNumber(), getNumberOfGame());
+    }
 
-
+    static void next() {
+        getMyController().updatePlayStation4UI(getNextGame(), getCurrentGameNumber(), getNumberOfGame());
+    }
 }

@@ -35,10 +35,10 @@
                         <TextField fx:id="textGenre" layoutX="132.0" layoutY="139.0" prefHeight="25.0" prefWidth="349.0" />
                         <TextField fx:id="textDeveloper" layoutX="132.0" layoutY="171.0" prefHeight="25.0" prefWidth="349.0" />
                         <TextField fx:id="textPublisher" layoutX="132.0" layoutY="200.0" prefHeight="25.0" prefWidth="348.0" />
-                        <Button fx:id="previousButton" layoutX="61.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Previous " />
+                        <Button fx:id="previousButton" layoutX="61.0" layoutY="249.0" mnemonicParsing="false" onAction="#previousButtonClicked" prefHeight="25.0" prefWidth="85.0" text="Previous " />
                         <Label layoutX="167.0" layoutY="253.0" text="Play Station Game Number:" />
                         <Label fx:id="playStationGameNumberLabel" layoutX="320.0" layoutY="253.0" text="0 of 0" />
-                        <Button fx:id="nextButton" layoutX="376.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Next" />
+                        <Button fx:id="nextButton" layoutX="376.0" layoutY="249.0" mnemonicParsing="false" onAction="#nextButtonClicked" prefHeight="25.0" prefWidth="85.0" text="Next" />
                      </children>
                   </AnchorPane>
             </content>

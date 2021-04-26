@@ -22,9 +22,16 @@ public void initialize(){
 
     PlayStation4Game.initialize();
     Game.initialize();
-
     Game.describeAll();
 
+    }
+
+    public void previousButtonClicked() {
+        PlayStation4Game.previous();
+    }
+
+    public void nextButtonClicked() {
+        PlayStation4Game.next();
     }
 
     void updatePlayStation4UI(PlayStation4Game playStationGame, int playStationGameNum, int numOfPlayStationGames) {
