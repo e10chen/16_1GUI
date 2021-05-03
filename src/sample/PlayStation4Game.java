@@ -1,11 +1,10 @@
 package sample;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PlayStation4Game extends Game {
+public class PlayStation4Game extends Game implements Serializable {
 
     private static ArrayList<PlayStation4Game> playStation4Games = new ArrayList<>();
     private static int currentGameNumber;
@@ -25,10 +24,10 @@ public class PlayStation4Game extends Game {
         playStation4Games.add(this);
     }
 
-    static void initialize() {
-        read("src/sample/PlayStation4GameData");
-        getMyController().updatePlayStation4UI(getFirstGame(), 1, getNumberOfGame());
-    }
+ //   static void initialize() {
+ //       read("src/sample/PlayStation4GameData");
+  //      getMyController().updatePlayStation4UI(getFirstGame(), 1, getNumberOfGame());
+  //  }
 
 
 
@@ -137,4 +136,35 @@ public class PlayStation4Game extends Game {
     static void next() {
         getMyController().updatePlayStation4UI(getNextGame(), getCurrentGameNumber(), getNumberOfGame());
     }
+
+    static public void save() {
+        if (playStation4Games !=null && !playStation4Games.isEmpty()) {
+            try {
+                File savedModelFile = new File("serializedAllPlayStation4Games");
+                FileOutputStream savedModelFileStream = new FileOutputStream(savedModelFile);
+                ObjectOutputStream out = new ObjectOutputStream(savedModelFileStream);
+                out.writeObject(playStation4Games);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+    }
+    static public boolean restore() {
+        File savedModelFile = new File("serializedAllPlayStation4Games");
+        if (savedModelFile.exists()) {
+            try {
+                FileInputStream savedModelFileStream = new FileInputStream(savedModelFile);
+                ObjectInputStream in = new ObjectInputStream(savedModelFileStream);
+                playStation4Games  = (ArrayList<PlayStation4Game>)in.readObject();
+                if (!playStation4Games.isEmpty()) {
+                    return true;
+
+            }
+        }  catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } return false;
+    }
 }
+
